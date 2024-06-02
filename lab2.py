@@ -10,14 +10,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 # Step 1: Import the Item class from lab1.py
-
-
-
-
+from lab1 import Item
 
 # Step 2: Define the InventoryManager class as a facade to handle the inventory operations.
 # It should include methods to add, remove, update, and display items in the inventory.
-
+class InventoryManager:
+    
+    
 
 
 
