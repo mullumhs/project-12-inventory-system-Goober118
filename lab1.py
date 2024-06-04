@@ -73,10 +73,3 @@ class Item:
 ball = Item("ball", 1300, 1)
 ball.set_quantity(300)
 print(ball.get_quantity())        
-
-try:
-    whopper = Item("whopper", 3, 1)
-    whopper.set_quantity(-4)
-    print(whopper.get_quantity())
-except ValueError as error:
-    print(error)
