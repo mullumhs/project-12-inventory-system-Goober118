@@ -18,22 +18,33 @@ class InventoryManager:
     def __init__(self):
         self.items = []
     
-    def add_item(self, item):
-        for existing_item in self.item:
-            if existing_item.get_name(self) == item.get_name(self):
-                return False
-        self.items.append(item)
-        return True
+    def add_item(self, name, price, quantity):
+        for item in self.items:
+            if item.get_name(self) == name:
+                print(f"Item {name} already exists.")
+                return
+        new_item = Item(name, price, quantity)
+        self.items.append(new_item)
+        print(f"Item added: {new_item}.")
+        return
+
+    def remove_item(self, name):
+        for item in self.items:
+            if item.name == name:
+                self.items.remove(item)
+                print(f"Item removed: {name}")
+                return
+        print("Item not found.")
+
+    def update_item(self, name, new_price=None, new_quantity=None):
+        for item in self.items:
+            if item.get_name(self) == name:
+                self.item.append(new_price, new_quantity)
+                return
+        print("Item not found")
     
-    def remove_item(self):
-        for i,existing_item in enumerate(self.items):
-            if existing_item.get_name() == self.name:
-                
-            
-            
-
-
-
-
 # Step 2: Create instances of the Item class and InventoryManager, then demonstrate their usage.
 # E.g. add items to the inventory, remove items, update items, and display the inventory.
+
+bread_section = InventoryManager()
+bread_section.add_item('baguette' , 30, 60)

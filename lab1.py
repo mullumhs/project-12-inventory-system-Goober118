@@ -70,6 +70,3 @@ class Item:
 # Step 8: Create instances of the Item class and demonstrate the use of getters and setters.
 # For example, create a new Item and attempt to set its attributes with both valid and invalid values.
 # Print the outputs using the getters to show how the data is managed internally.
-ball = Item("ball", 1300, 1)
-ball.set_quantity(300)
-print(ball.get_quantity())        
