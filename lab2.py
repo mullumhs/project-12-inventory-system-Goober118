@@ -20,31 +20,47 @@ class InventoryManager:
     
     def add_item(self, name, price, quantity):
         for item in self.items:
-            if item.get_name(self) == name:
+            if item.get_name() == name:
                 print(f"Item {name} already exists.")
-                return
+                return None
         new_item = Item(name, price, quantity)
         self.items.append(new_item)
-        print(f"Item added: {new_item}.")
-        return
+        print(f"Item added: {name}.")
+        return True
 
     def remove_item(self, name):
         for item in self.items:
-            if item.name == name:
+            if item.get_name() == name:
                 self.items.remove(item)
                 print(f"Item removed: {name}")
-                return
+                return True
         print("Item not found.")
+        return None
 
     def update_item(self, name, new_price=None, new_quantity=None):
-        for item in self.items:
-            if item.get_name(self) == name:
-                self.item.append(new_price, new_quantity)
-                return
+        for existing_item in self.items:
+            if existing_item.get_name() == name:
+                existing_item.set_quantity(new_quantity)
+                existing_item.set_price(new_price)
+                print(f"Item updated: {name}.\nNew quantity: {new_quantity}\nNew price: ${new_price}")
+                return True
         print("Item not found")
+        return False
+    
+    def display_items(self):
+        for item in self.items:
+            print(f"Item name: {item.get_name()}\n\nItem price: {item.get_price()}\nItem quantity: {item.get_quantity()}")
+
+            
     
 # Step 2: Create instances of the Item class and InventoryManager, then demonstrate their usage.
 # E.g. add items to the inventory, remove items, update items, and display the inventory.
 
 bread_section = InventoryManager()
 bread_section.add_item('baguette' , 30, 60)
+bread_section.remove_item('baguette')
+bread_section.display_items()
+
+milk_section = InventoryManager()
+milk_section.add_item('cream', 20, 1)
+milk_section.update_item('cream', 15, 12)
